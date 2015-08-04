@@ -447,7 +447,6 @@ get information of a collection of events.
 def get_events(data, get_event_id_list):
   event_id_list = get_event_id_list(data)
   event_list = []
-  event_info = {}
   for event_id in event_id_list:
     event_info = {}
     event_info[KEY.EVENT_ID] = event_id
@@ -979,7 +978,7 @@ def get_nearby_event(data):
   if KEY.ID not in data:
     return nearby_event_list
   user = get_user_information(data)
-  DISTANCE = 0.5 # 500m
+  DISTANCE = 2.0 # 2000m
   location_range = haversine.get_range(user[KEY.LONGITUDE], user[KEY.LATITUDE], DISTANCE)
   sql = "select id from event where " \
         "longitude > %f and longitude < %f " \
