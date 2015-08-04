@@ -454,7 +454,6 @@ get information of a collection of events.
 def get_events(data, get_event_id_list):
   event_id_list = get_event_id_list(data)
   event_list = []
-  event_info = {}
   for event_id in event_id_list:
     event_info = {}
     event_info[KEY.EVENT_ID] = event_id
@@ -1022,7 +1021,6 @@ def get_nearby_event(data):
         "longitude > %f and longitude < %f " \
         "and latitude > %f and latitude < %f"\
         %(location_range[0], location_range[1], location_range[2], location_range[3])
-  print sql
   if KEY.TYPE in data:
     sql += " and type = %d"%data[KEY.TYPE]
   if KEY.STATE in data:
