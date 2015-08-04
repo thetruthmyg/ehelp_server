@@ -977,7 +977,7 @@ def get_neighbor(data):
   user = get_user_information(data)
   if user is None:
     return neighbor_uid_list
-  DISTANCE = 25.0 # 25000m
+  DISTANCE = 15.0 # 15000m
   location_range = haversine.get_range(user[KEY.LONGITUDE], user[KEY.LATITUDE], DISTANCE)
   sql = "select id from user where " \
         "longitude > %f and longitude < %f " \
@@ -1015,7 +1015,7 @@ def get_nearby_event(data):
   if KEY.ID not in data:
     return nearby_event_list
   user = get_user_information(data)
-  DISTANCE = 25.0 # 25000m
+  DISTANCE = 0.5 # 500m
   location_range = haversine.get_range(user[KEY.LONGITUDE], user[KEY.LATITUDE], DISTANCE)
   sql = "select id from event where " \
         "longitude > %f and longitude < %f " \
